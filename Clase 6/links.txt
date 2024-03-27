@@ -1,0 +1,3 @@
+https://reactnative.dev/docs/flatlist
+https://colorhunt.co
+https://tools-network.com/react-native-shadow/react-native-box-shadow
