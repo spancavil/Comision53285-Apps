@@ -2,10 +2,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors'
 
-const Header = () => {
+const Header = ({title}) => {
   return (
-    <View>
-      <Text style = {styles.text}>Header</Text>
+    <View style = {styles.container}>
+      <Text style = {styles.text}>{title}</Text>
     </View>
   )
 }
@@ -13,6 +13,13 @@ const Header = () => {
 export default Header
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 70,
+    backgroundColor: colors.teal900,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   text: {
     color: colors.teal200
   }
