@@ -1,0 +1,6 @@
+Regex testing: https://regexr.com/
+Products and categories: https://dummyjson.com/docs/products
+Expo icons docs: https://docs.expo.dev/guides/icons/
+Expo icons browse: https://icons.expo.fyi
+React native image: https://reactnative.dev/docs/image
+Expo fonts: https://docs.expo.dev/versions/latest/sdk/font/
