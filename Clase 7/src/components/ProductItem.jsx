@@ -3,16 +3,16 @@ import React from 'react'
 import Card from './Card'
 import { colors } from '../constants/colors'
 
-const ProductItem = ({item}) => {
+const ProductItem = ({product}) => {
   return (
     <Card
       style={styles.additionalStylesCard}
     >
-        <Text style={styles.textCategory}>{item.title}</Text>
+        <Text style={styles.textCategory}>{product.title}</Text>
         <Image 
           resizeMode='cover'
           style = {styles.image}
-          source={{uri: item.images[0]}}
+          source={{uri: product.images[0]}}
         />
     </Card>
   )

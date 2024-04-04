@@ -4,10 +4,11 @@ import { FontAwesome } from "@expo/vector-icons"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { AntDesign } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
+import { FontAwesome6 } from '@expo/vector-icons';
 
 const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
   const [keyword, setKeyword] = useState("")
-
+  console.log(error);
   return (
     <View style={styles.container}>
       <TextInput
@@ -17,13 +18,13 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         onChangeText={setKeyword}
       />
       <Pressable onPress={() => onSearch(keyword)}>
-        <FontAwesome name="search" size={24} color="black" />
+        <FontAwesome6 name="searchengin" size={24} color="white" />
       </Pressable>
       <Pressable onPress={() => setKeyword("")}>
-        <FontAwesome5 name="eraser" size={24} color="black" />
+        <FontAwesome5 name="eraser" size={24} color="white" />
       </Pressable>
       <Pressable onPress={goBack}>
-        <AntDesign name="back" size={24} color="black" />
+        <AntDesign name="back" size={24} color="white" />
       </Pressable>
       {error ? <Text>{error}</Text> : null}
     </View>
