@@ -1,0 +1,4 @@
+Css min-width: https://www.w3schools.com/cssref/pr_dim_min-width.php
+useDimensions: https://reactnative.dev/docs/usewindowdimensions
+SafeAreaView: https://reactnative.dev/docs/safeareaview
+SafeAreaView (Android): https://stackoverflow.com/questions/51289587/how-to-use-safeareaview-for-android-notch-devices
