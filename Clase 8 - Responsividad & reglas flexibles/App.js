@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native"
+import { Platform, SafeAreaView, StatusBar, StyleSheet, View } from "react-native"
 import Home from "./src/screens/Home"
 import { colors } from "./src/constants/colors"
 import Header from "./src/components/Header"
@@ -13,31 +13,42 @@ const App = () => {
   })
 
   const [categorySelected, setCategorySelected] = useState("")
+  const [itemIdSelected, setItemIdSelected] = useState("")
 
   if (!fontsLoaded || fontError) {
     return null
   }
 
+  console.log(itemIdSelected);
+
   if (fontsLoaded && !fontError) {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Header title={"Titulo de la app"} />
         {!categorySelected ? (
           <Home setCategorySelected={setCategorySelected} />
-        ) : (
+        ) : 
+
+        !itemIdSelected ?
           <ItemListCategory
             categorySelected={categorySelected}
             setCategorySelected={setCategorySelected}
+            setItemIdSelected={setItemIdSelected}
           />
-        )}
-      </View>
+          :
+          <ItemDetail 
+            idSelected={itemIdSelected}
+            setProductSelected={setItemIdSelected}
+          />
+        }
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: 30,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     flex: 1,
     // alignItems: "center",
     backgroundColor: colors.teal200,
