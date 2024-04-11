@@ -6,13 +6,13 @@ import { colors } from "../constants/colors"
 const ProductItem = ({
   product,
   setProductSelected = () => {},
-  setItemIdSelected = () => {},
+  navigation,
 }) => {
   return (
     <Card style={styles.additionalStylesCard}>
       <Pressable
         style={styles.pressable}
-        onPress={() => setItemIdSelected(product.id)}
+        onPress={() => navigation.navigate('ItemDetail', {productId: product.id})}
       >
         <Text style={styles.textCategory}>{product.title}</Text>
         <Image
