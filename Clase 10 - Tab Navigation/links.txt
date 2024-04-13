@@ -1,0 +1,1 @@
+Bottom tabs Navigator: https://reactnavigation.org/docs/bottom-tab-navigator/#initialroutename
