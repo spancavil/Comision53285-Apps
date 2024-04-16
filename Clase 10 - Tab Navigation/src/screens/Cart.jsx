@@ -4,14 +4,20 @@ import CartData from '../data/cart.json'
 import CartItem from '../components/CartItem';
 
 const Cart = () => {
-    console.log(CartData);
+    // console.log(CartData);
     const total = CartData.reduce((acumulador, currentItem) => acumulador += currentItem.price * currentItem.quantity, 0)
+
+    let total2 = 0
+    for (const currentItem of CartData) {
+        console.log(currentItem.id);
+        total2 += currentItem.price * currentItem.quantity
+    }
     
     return (
     <View style={styles.container}>
         <FlatList
             data={CartData}
-            keyExtractor={cartItem => cartItem.id}
+            keyExtractor={pepe => pepe.id}
             renderItem={({item})=> {
                 return (
                     <CartItem

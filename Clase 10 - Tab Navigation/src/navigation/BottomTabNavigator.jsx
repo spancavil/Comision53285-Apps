@@ -43,7 +43,7 @@ const BottomTabNavigator = () => {
             />
             <Tab.Screen
                 name="Cart"
-                component={CartTemp}
+                component={CartStack}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
@@ -58,7 +58,20 @@ const BottomTabNavigator = () => {
                     },
                 }}
             />
-            <Tab.Screen
+            <Tab.Screen 
+                name="Orders"
+                component={OrderStack}
+                options={{
+                    tabBarIcon: ({ focused }) => {
+                        return (
+                            <View>
+                                <Ionicons name="receipt-outline" size={24} color={ focused ? 'black' : colors.teal600} />
+                            </View>
+                        )
+                    },
+                }}
+            />
+            {/* <Tab.Screen
                 name="Orders"
                 component={OrdersTemp}
                 options={{
@@ -74,7 +87,7 @@ const BottomTabNavigator = () => {
                         )
                     },
                 }}
-            />
+            /> */}
         </Tab.Navigator>
     )
 }

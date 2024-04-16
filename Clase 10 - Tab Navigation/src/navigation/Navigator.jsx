@@ -7,8 +7,7 @@ import HomeStackNavigator from './HomeStackNavigator'
 const Navigator = () => {
   return (
     <NavigationContainer>
-        {/* <BottomTabNavigator/> */}
-        <HomeStackNavigator/>
+        <BottomTabNavigator/>
     </NavigationContainer>
   )
 }

@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator()
 const CartStack = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Cart"
+            initialRouteName="CartScreen"
             screenOptions={{
                 headerShown: false
             }}
