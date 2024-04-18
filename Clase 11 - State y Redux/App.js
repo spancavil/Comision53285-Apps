@@ -7,6 +7,8 @@ import {
 import { colors } from "./src/constants/colors"
 import { useFonts } from "expo-font"
 import Navigator from "./src/navigation/Navigator"
+import { Provider } from "react-redux"
+import store from "./src/store"
 
 const App = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -20,7 +22,9 @@ const App = () => {
   if (fontsLoaded && !fontError) {
     return (
       <SafeAreaView style={styles.container}>
-        <Navigator/>
+        <Provider store={store}>
+          <Navigator/>
+        </Provider>
       </SafeAreaView>
     )
   }

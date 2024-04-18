@@ -1,1 +1,1 @@
-Bottom tabs Navigator: https://reactnavigation.org/docs/bottom-tab-navigator/#initialroutename
+Redux toolkit: https://redux-toolkit.js.org/introduction/getting-started
