@@ -1,24 +1,26 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native"
 import React from "react"
-import CartData from "../data/cart.json"
+// import CartData from "../data/cart.json"
 import CartItem from "../components/CartItem"
+import { useSelector } from "react-redux"
 // import { useSelector } from "react-redux"
 // import { usePostOrderMutation } from "../services/shopService"
 
 const Cart = () => {
     // console.log(CartData);
 
+    const {items: CartData, total} = useSelector(state => state.cart.value)
     /* const { items: cartItems, total } = useSelector((state) => state.cart.value)
     const [triggerPost, result] = usePostOrderMutation()
 
     console.log(cartItems)
     console.log(result) */
 
-    let total = 0
+    /* let total = 0
     for (const currentItem of CartData) {
         console.log(currentItem.id);
         total += currentItem.price * currentItem.quantity
-    }
+    } */
 
     /* onConfirm = () => {
         triggerPost({

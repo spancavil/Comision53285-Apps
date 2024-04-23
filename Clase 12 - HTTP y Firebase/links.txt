@@ -2,3 +2,4 @@ Redux RTK Query: https://redux-toolkit.js.org/rtk-query/overview
 Indexado de información: https://firebase.google.com/docs/database/security/indexing-data
 Obteniendo data de RTDB by REST API: https://firebase.google.com/docs/database/rest/retrieve-data
 Mutations: https://redux-toolkit.js.org/rtk-query/usage/mutations
+Compartiendo información entre slices: https://redux.js.org/faq/reducers#how-do-i-share-state-between-two-reducers-do-i-have-to-use-combinereducers
