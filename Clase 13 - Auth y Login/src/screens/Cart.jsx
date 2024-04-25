@@ -3,6 +3,7 @@ import React from "react"
 // import CartData from "../data/cart.json"
 import CartItem from "../components/CartItem"
 import { useSelector } from "react-redux"
+import { usePostOrderMutation } from "../services/shopService"
 // import { useSelector } from "react-redux"
 // import { usePostOrderMutation } from "../services/shopService"
 
@@ -10,6 +11,8 @@ const Cart = () => {
     // console.log(CartData);
 
     const {items: CartData, total} = useSelector(state => state.cart.value)
+
+    const [triggerPostOrder, result] = usePostOrderMutation()
     /* const { items: cartItems, total } = useSelector((state) => state.cart.value)
     const [triggerPost, result] = usePostOrderMutation()
 
@@ -31,6 +34,12 @@ const Cart = () => {
         })
     } */
 
+    const onConfirmOrder = () => {
+        triggerPostOrder({items: CartData, user: 'Rafael', total})
+    }
+
+    console.log(result);
+
     return (
         <View style={styles.container}>
             <FlatList
@@ -41,7 +50,7 @@ const Cart = () => {
                 }}
             />
             <View style={styles.totalContainer}>
-                <Pressable onPress={() => {}}>
+                <Pressable onPress={onConfirmOrder}>
                     <Text>Confirm</Text>
                 </Pressable>
                 <Text>Total: ${total}</Text>

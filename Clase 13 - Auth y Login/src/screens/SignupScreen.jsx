@@ -5,6 +5,9 @@ import { isAtLeastSixCharacters, isValidEmail } from "../validations/auth";
 import { colors } from "../constants/colors";
 import SubmitButton from "../components/submitButton";
 import InputForm from "../components/inputForm";
+import { useSignUpMutation } from "../services/authService";
+import { setUser } from "../features/User/userSlice";
+import { signupSchema } from "../validations/authSchema";
 /* import { useSignUpMutation } from "../Services/authServices";
 import { setUser } from "../Features/User/userSlice";
 import { useSignUpMutation } from "../services/authService";
@@ -22,8 +25,11 @@ const SignupScreen = ({ navigation }) => {
 
     const dispatch = useDispatch()
 
-    /* useEffect(()=> {
+    const [triggerSignUp, result] = useSignUpMutation()
+
+    useEffect(()=> {
         if (result.isSuccess) {
+            console.log("🕵🏻 ~ useEffect ~ result:", result)
             dispatch(
                 setUser({
                     email: result.data.email,
@@ -31,9 +37,31 @@ const SignupScreen = ({ navigation }) => {
                 })
             )
         }
-    }, [result]) */
+    }, [result])
 
     const onSubmit = () => {
+        try {
+            setErrorMail("")
+            setErrorPassword("")
+            setErrorConfirmPassword("")
+            const validation = signupSchema.validateSync({email, password, confirmPassword})
+            triggerSignUp({email, password, returnSecureToken: true})
+        } catch (err) {
+            console.log("Entro al signup del error");
+            console.log(err.path);
+            console.log(err.message);
+            switch (err.path) {
+                case "email":
+                    setErrorMail(err.message)
+                    break;
+                case "password":
+                    setErrorPassword(err.message)
+                case "confirmPassword":
+                    setErrorConfirmPassword(err.message)
+                default:
+                    break;
+            }
+        }
         /* try {
             //Submit logic with validations
             const isValidVariableEmail = isValidEmail(email)

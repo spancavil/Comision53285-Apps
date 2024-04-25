@@ -1,4 +1,5 @@
 Animations: https://reactnative.dev/docs/animations
 GetDefaultMiddleware: https://redux-toolkit.js.org/api/getDefaultMiddleware
+Mutations: https://redux-toolkit.js.org/rtk-query/usage/mutations
 Auth API REST: https://firebase.google.com/docs/reference/rest/auth?authuser=0
 Yup schema validator: https://github.com/jquense/yup
