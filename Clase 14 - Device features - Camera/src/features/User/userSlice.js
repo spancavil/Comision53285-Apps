@@ -7,6 +7,7 @@ export const authSlice = createSlice({
             user: null,
             token: null,
             localId: null,
+            imageCamera: null,
         }
     },
     reducers: {
@@ -21,6 +22,7 @@ export const authSlice = createSlice({
         },
         setCameraImage: (state, {payload}) => {
             //Add logic
+            state.value.imageCamera = payload
         }
     }
 })

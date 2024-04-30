@@ -7,6 +7,9 @@ import { useGetProfileImageQuery } from "../services/shopService";
 const MyProfile = ({navigation}) => {
     /* const {localId, imageCamera} = useSelector(state => state.auth.value)
     const {data: imageFromBase} = useGetProfileImageQuery(localId) */
+    
+    const {imageCamera, localId} = useSelector(state => state.auth.value)
+    const {data: imageFromBase} = useGetProfileImageQuery(localId)
 
     const launchCamera = async () => {
         navigation.navigate('Image selector')
@@ -16,19 +19,19 @@ const MyProfile = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            {/* {imageFromBase || imageCamera  ? (
+            {imageFromBase || imageCamera  ? (
                 <Image
                     source={{uri: imageFromBase?.image || imageCamera}}
                     style={styles.image}
                     resizeMode="cover"
                 />
-            ) : ( */}
+            ) : (
                 <Image
                     source={require(defaultImageRoute)}
                     style={styles.image}
                     resizeMode="cover"
                 />
-            {/* )} */}
+            )}
             <AddButton onPress={launchCamera} title="Add profile picture" />
         </View>
     );

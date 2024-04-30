@@ -12,10 +12,22 @@ import { usePostProfileImageMutation } from "../services/shopService";
 const ImageSelector = ({ navigation }) => {
     const [image, setImage] = useState(null);
 
+    const [triggerPostImage, result] = usePostProfileImageMutation()
+
+    const {localId} = useSelector(state => state.auth.value)
+
+    console.log(localId);
+
+    const dispatch = useDispatch()
+
     /* const [triggerSaveImage, resultSaveImage] = usePostProfileImageMutation();
     const dispatch = useDispatch();
     const { localId } = useSelector((state) => state.auth.value); */
 
+    const verifyCameraPermissions = async () => {
+        const {granted} = await ImagePicker.requestCameraPermissionsAsync()
+        return granted
+    }
     /* const verifyCameraPermissions = async () => {
         const { granted } = await ImagePicker.requestCameraPermissionsAsync();
         if (!granted) {
@@ -25,6 +37,29 @@ const ImageSelector = ({ navigation }) => {
     };
  */
     const pickImage = async () => {
+
+        try {
+            const permissionCamera = await verifyCameraPermissions()
+            
+            if (permissionCamera) {
+                let result = await ImagePicker.launchCameraAsync({
+                    mediaTypes: ImagePicker.MediaTypeOptions.All,
+                    allowsEditing: true,
+                    aspect: [1, 1],
+                    base64: true,
+                    quality: 0.2    
+                })
+                /* console.log(result);
+                console.log(result.assets[0].base64.length) */
+                if (!result.canceled){
+                    const image = `data:image/jpeg;base64,${result.assets[0].base64}`
+                    setImage(image)
+                }
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
 
         /* //Permission for camera
         const isCameraOk = await verifyCameraPermissions();
@@ -48,6 +83,13 @@ const ImageSelector = ({ navigation }) => {
     };
     
     const confirmImage = async () => {
+        try {
+            dispatch(setCameraImage(image))
+            triggerPostImage({image, localId})
+            navigation.goBack()
+        } catch (error) {
+            console.log(error);
+        }
         /* try {
             dispatch(setCameraImage(image));
             triggerSaveImage({image, localId})
