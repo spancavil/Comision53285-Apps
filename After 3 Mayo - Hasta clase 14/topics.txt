@@ -1,0 +1,4 @@
+- Add logout
+- Changes texts on my profile for modify profile image
+- Add possibility to access library using Media Library
+- If camera took photo and confirm save in gallery
