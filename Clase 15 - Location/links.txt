@@ -1,0 +1,4 @@
+Expo Location => https://docs.expo.dev/versions/latest/sdk/location/
+Google maps static => https://developers.google.com/maps/documentation/maps-static/overview
+Google maps start => https://developers.google.com/maps/documentation/maps-static/start?hl=es-419
+Reverse geocoding => https://developers.google.com/maps/documentation/geocoding/start?hl=es_419
