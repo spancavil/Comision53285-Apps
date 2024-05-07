@@ -1,28 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { useSelector } from "react-redux";
-import AddButton from "../components/AddButton";
+import { StyleSheet, Text, View } from "react-native"
+import React from "react"
+import { useSelector } from "react-redux"
+import AddButton from "../components/AddButton"
+import { useGetLocationQuery } from "../services/shopService"
+import AddressItem from "../components/AddressItem"
+
 /* import AddressItem from '../Components/AddressItem'
 import { useGetUserLocationQuery } from "../Services/shopServices"; */
 
 const ListAddress = ({ navigation }) => {
-    /* const { location, localId } = useSelector((state) => state.userReducer.value);
-    const {data: userLocationQuery, isError, isLoading} = useGetUserLocationQuery(localId) */
+    const { localId } = useSelector((state) => state.auth.value)
 
-/*     console.log(userLocationQuery);
+    const { data: location, isLoading, error } = useGetLocationQuery(localId)
 
-    let locationQueryFormatted = {
-        location: userLocationQuery
-    } */
+    console.log(location);
 
-    /* return location?.latitude || userLocationQuery ? (
-        <AddressItem 
-            location={location.latitude ? location : userLocationQuery} 
-            navigation={navigation} 
+    return location ? (
+        <AddressItem
+            location={location}
+            navigation={navigation}
         />
-    ) : ( */
-    return (
-        <View style = {styles.container}>
+    ) : (
+        <View style={styles.container}>
             <Text style={styles.text}>No location set</Text>
             <AddButton
                 title="Set location"
@@ -30,19 +29,18 @@ const ListAddress = ({ navigation }) => {
             />
         </View>
     )
-    // );
-};
+}
 
-export default ListAddress;
+export default ListAddress
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'flex-start',
-        alignItems: 'center'
+        justifyContent: "flex-start",
+        alignItems: "center",
     },
     text: {
         paddingVertical: 20,
-        fontFamily: 'Josefin',
-        fontSize: 18
-    }
-});
+        fontFamily: "Josefin",
+        fontSize: 18,
+    },
+})
