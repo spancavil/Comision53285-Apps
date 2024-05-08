@@ -1,0 +1,2 @@
+SQLite home => https://www.sqlite.org/
+Expo SQLite => https://docs.expo.dev/versions/latest/sdk/sqlite/
