@@ -4,6 +4,27 @@ import { useFonts } from "expo-font"
 import Navigator from "./src/navigation/Navigator"
 import { Provider } from "react-redux"
 import store from "./src/store"
+import { dropSessionsTable, initSQLiteDB } from "./src/persistence"
+
+(async ()=> {
+    try {
+        const response = await initSQLiteDB()
+        console.log({responseCreatingDB: response});
+        console.log("DB initialized");
+    } catch (error) {
+        console.log({errorCreatingDB: error});
+    }
+})()
+
+/* (async ()=> {
+    try {
+        const response = await dropSessionsTable()
+        console.log({responseCreatingDB: response});
+        console.log("DB initialized");
+    } catch (error) {
+        console.log({errorCreatingDB: error});
+    }
+})() */
 
 const App = () => {
     const [fontsLoaded, fontError] = useFonts({
