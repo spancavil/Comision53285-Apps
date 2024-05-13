@@ -1,0 +1,7 @@
+Topics
+Eliminar código comentado / inservible
+Eliminar count
+Completar funcionalidades (order)
+Nada debe quedar sin funcionar!!!!
+
+Readme.so editor de MD => https://readme.so/editor
