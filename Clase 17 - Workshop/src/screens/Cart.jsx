@@ -10,6 +10,7 @@ import { usePostOrderMutation } from "../services/shopService"
 const Cart = () => {
     // console.log(CartData);
 
+    const {localId} = useSelector(state => state.auth.value)
     const {items: CartData, total} = useSelector(state => state.cart.value)
 
     const [triggerPostOrder, result] = usePostOrderMutation()
@@ -35,7 +36,8 @@ const Cart = () => {
     } */
 
     const onConfirmOrder = () => {
-        triggerPostOrder({items: CartData, user: 'Rafael', total})
+        triggerPostOrder({items: CartData, user: localId, total})
+        //Una vez generada la order hay que limpiar el cart y/o que navegue hacia Home
     }
 
     console.log(result);
